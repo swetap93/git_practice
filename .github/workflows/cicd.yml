@@ -1,0 +1,22 @@
+name: CICD Pipeline
+
+on:
+ 
+  pull_request:
+    branches: [ develope ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    
+    - name: Execute sample.py
+      run: python sample.py
